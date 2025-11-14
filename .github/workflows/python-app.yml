@@ -50,7 +50,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruff django
       - name: Lint with ruff
-        run: ruff .
+        run: ruff check --fix
 
   tests:
     runs-on: ubuntu-latest
