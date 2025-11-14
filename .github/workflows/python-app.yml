@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-  python:
+  setup-python:
     runs-on: ubuntu-latest
     needs: checkout
     steps:
@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.9"
 
-  install:
+  install-deps:
     runs-on: ubuntu-latest
     needs: setup-python
     steps:
@@ -38,7 +38,7 @@ jobs:
 
   lint:
     runs-on: ubuntu-latest
-    needs: install
+    needs: install-deps
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.9
